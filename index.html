@@ -1,10 +1,11 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<title> test</title>
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="bootstrap.css">
 </head>
 <body>
-	<link rel="stylesheet" type="text/css" href="bootstrap.css">
-	<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -52,31 +53,14 @@
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>
-</p>
-<div id="main"></div>
-<div id="scores"></div>
 
-<div class="row"></div>
-	<div class="col-md-12"></div>
-		<div id="main"><canvas id="game"></canvas></div>
+<div class="row">
+        <div class="col-md-12">
+                        <div id="main"><canvas id="game"></canvas></div>
+        </div>
 </div>
-<script>
-(function(){
-var canvas = document.getElementById('game');
-var ctx = canvas.getContext('2d');
 
-	var ballx = Math.floor(Math.random() * 300);// 0 - 300
-	var bally = Math.floor(Math.random() * 500);// 0 - 500
-	var ballz = Math.floor(Math.random() * 100);// 0 - 100
-canvas.width = 480;
-canvas.height = 320;
+<script type="text/javascript" src="main.js"></script>
 
-ctx.fillstyle = 'black';
-ctx.beginPath();
-ctx.arc(ballx, bally, ballz, 0, Math.PI * 2 , true);
-ctx.fill();
-}) ();
-
-</script>
 </body>
 </html>
