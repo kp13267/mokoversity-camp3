@@ -3,7 +3,19 @@ var gameModule = (function(){
 	var timeoutVar,
 		counter = 0;
 
+function touchEvent(evt){
+	var x= evt.clientX,
+	    y= evt.clientY;
+
+	console.log("Clicked: " + x + " , " + y);
+}
+
 	function start(){
+	document.getElementById("main").addEventListener("click",touchEvent,false);
+	startGame();
+	}
+
+	function startGame(){
 var canvas = document.getElementById('game');
 var ctx = canvas.getContext('2d');
 	var ballx = Math.floor(Math.random() * 300);// 0 - 300
@@ -28,6 +40,10 @@ if (counter >= 10){
 	console.log("Counter: " + counter);
 }
 
+}
+
+function gameOver(){
+	console.log("Coucter: " + counter);
 }
 
 return{
