@@ -1,7 +1,8 @@
-var gameModule = (function(){
+var gameModule = (function() {
 
+  "use Strict";
 	var timeoutVar,
-		
+    
 		counter = 0,
 		ballX,
 		ballY,
@@ -24,7 +25,7 @@ var gameModule = (function(){
 		  }
 	}
 
-	function start(){
+	function start() {
 	    scores = 0;
 
 		document.getElementById("main").addEventListener("click", touchEvent, false);
