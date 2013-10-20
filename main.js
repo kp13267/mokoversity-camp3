@@ -1,16 +1,28 @@
 var gameModule = (function(){
 
 	var timeoutVar,
-		counter = 0;
+		counter = 0,
+		ballX,
+		ballY,
+		ballR,
+		colors = ['#ff0000','#000ff','yellow'],
+		length = colors.length;
+
 
 function touchEvent(evt){
 	var x= evt.clientX,
 	    y= evt.clientY;
+	    tmp = (ballX - x) * (ballX - x)+(ballY - y) * (ballY- y);
 
 	console.log("Clicked: " + x + " , " + y);
-}
+	
+	if(tmp < ballR * ballR){
+		console.log("Hit ! Your scores: "+ scores);
+	}
+	}
 
 	function start(){
+
 	document.getElementById("main").addEventListener("click",touchEvent,false);
 	startGame();
 	}
@@ -18,23 +30,23 @@ function touchEvent(evt){
 	function startGame(){
 var canvas = document.getElementById('game');
 var ctx = canvas.getContext('2d');
-	var ballx = Math.floor(Math.random() * 300);// 0 - 300
-	var bally = Math.floor(Math.random() * 500);// 0 - 500
-	var ballz = Math.floor(Math.random() * 100);// 0 - 100
+	var ballX = Math.floor(Math.random() * 300);// 0 - 300
+	var ballY = Math.floor(Math.random() * 500);// 0 - 500
+	var ballR = Math.floor(Math.random() * 100);// 0 - 100
 
 canvas.width = 480;
 canvas.height = 320;
 
 ctx.fillstyle = 'black';
 ctx.beginPath();
-ctx.arc(ballx, bally, ballz, 0, Math.PI * 2 , true);
+ctx.arc(ballX, ballY, ballR, 0, Math.PI * 2 , true);
 ctx.fill();
 
 if (counter >= 10){
 
 } else {
 
-	timeoutVar = setTimeout(start, 1000);
+	timeoutVar = setTimeout(startGame, 1000);
 	counter = counter + 1;
 
 	console.log("Counter: " + counter);
@@ -43,7 +55,7 @@ if (counter >= 10){
 }
 
 function gameOver(){
-	console.log("Coucter: " + counter);
+	//console.log("Coucter: " + counter);
 }
 
 return{
